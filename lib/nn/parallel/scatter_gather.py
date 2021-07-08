@@ -81,8 +81,8 @@ def gather(outputs, target_device, dim=0):
             if elem.shape == ():  # scalars
                 py_type = float if elem.dtype.name.startswith('float') else int
                 return Variable(numpy_type_map[elem.dtype.name](list(map(py_type, outputs))))
-        elif isinstance(out, int_classes):
-            return Variable(torch.LongTensor(outputs))
+        #elif isinstance(out, int_classes):
+            #return Variable(torch.LongTensor(outputs))
         elif isinstance(out, float):
             return Variable(torch.DoubleTensor(outputs))
         elif isinstance(out, string_classes):
